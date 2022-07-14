@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./assets/style.css" />
+  <title>Movie Wiki</title>
+</head>
+
+<body>
+    <header class="hero">
+        <h1>Movie Wiki</h1>
+        <p class="header-preview">Enter movie review preview here?</p>
+    </header>
+    
+    <main>
+        <nav>
+            <input type="search" placeholder="Search.."><br>
+
+            <!-- This is just an exmaple, may override with API available genres? -->
+            <label for="genre">Choose a genre:</label>
+                <select name="genre" id="genre">
+                    <option value="action">Action</option>
+                    <option value="animation">Animation</option>
+                    <option value="comedy">Comedy</option>
+                    <option value="crime">Crime</option>
+                    <option value="drama">Drama</option>
+                    <option value="horror">Horror</option>
+                    <option value="romance">Romance</option>
+                    <option value="thriller">Thriller</option>
+                </select><br>
+
+            <!-- Same with this? -->
+            <label for="year">Year made:</label>
+                <select name="year" id="year">
+                    <option value="2020">2020 - Present</option>
+                    <option value="2015">2015 - 2020</option>
+                    <option value="2010">2010 - 2015</option>
+                    <option value="2005">2005 - 2010</option>
+                    <option value="2000">2000 - 2005</option>
+                    <option value="1995">1995 - 2000</option>
+                    <option value="1990">1990 - 1995</option>
+                </select>
+        </nav>
+
+        <div class="left-col">
+            <h2>Left column content</h2>
+        </div>
+
+        <div class="right-col">
+            <h2>Right column content</h2>
+        </div>
+
+    </main>
+
+
+</body>
