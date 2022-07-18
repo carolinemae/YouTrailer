@@ -1,5 +1,5 @@
 
-var searchButton = $(".searchButton");
+var searchButton = $("#searchButton");
 var apiKey = "k_q5dx85dn";
 var movieResult;
 
@@ -16,7 +16,7 @@ function searchMovie(title) {
             method: "GET"
         }).then(function (response) {
             var response = response.results
-            movieResult = $(".left-col").append("<div>");
+            movieResult = $("#movies").append("<div>");
             movieResult.empty();
             createCard(response)
         })
