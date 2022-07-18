@@ -2,12 +2,15 @@
     --dark-color: black;
     --med-color: grey;
     --light-color: white;
-    --bright-color: red;
     --universal-padding: 10px;
 }
 
 * {
     font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
 }
 
 .hero {
@@ -28,7 +31,7 @@ main {
 nav {
     line-height: 30px;
     width: 200px;
-    height: 100vh;
+    height: 200vh;
     padding: var(--universal-padding);
     background-color: var(--med-color);
 }
@@ -36,11 +39,23 @@ nav {
 .left-col {
     width: 65%;
     padding: var(--universal-padding);
-    border: 1px solid black;
 }
 
 .right-col {
     width: 25%;
     padding: var(--universal-padding);
+}
+
+#movies {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie-card {
+    margin: 5px;
+    padding: 5px;
+    width: 200px;
+    height: 300px;
     border: 1px solid black;
 }
