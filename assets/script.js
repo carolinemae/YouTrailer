@@ -1,26 +1,57 @@
+
 var searchButton = $(".searchButton");
-var apiKey = "k_yu9dk035";
+var apiKey = "k_q5dx85dn";
+var movieResult;
 
 function searchMovie(title) {
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/en/API/SearchMovie/k_yu9dk035/" + title;
+    var urlMovie = "https://imdb-api.com/en/API/SearchMovie/k_q5dx85dn/" + title;
 
     if (title == "") {
+        alert('Please insert a movie title.')
         console.log(title);
     } else {
         $.ajax({
             url: urlMovie,
             method: "GET"
         }).then(function (response) {
-            var movieReslult = $(".left-col").append("<div>");
-            movieReslult.empty();
-            var movie = (response.results[0].title);
-            movieReslult.append("<p>" + movie + "</p>");
-            var imageUrl = (response.results[0].image_url);
-            movieReslult.append('"<img scr="imageUrl">');
+            var response = response.results
+            movieResult = $(".left-col").append("<div>");
+            movieResult.empty();
+            createCard(response)
         })
     };
 };
+
+const createCard = response => {
+    console.log(response)
+    var movieTitle;
+    var movieYear;
+    var movieImage;
+    for (var i = 0; i < response.length; i ++){
+        var movieCard = $('<div>')
+        var movieTitleInput = $('<h3>')
+        var movieYearInput = $('<p>')
+        var movieImgInput = $('<img>')
+
+        movieResult.append(movieCard)
+
+        movieTitle = response[i].title
+        movieTitleInput.text(movieTitle)
+        movieCard.append(movieTitleInput)
+
+        movieYear = response[i].description
+        movieYearInput.text(movieYear)
+        movieCard.append(movieYearInput)
+
+        movieImage = response[i].image
+        movieImgInput.attr('src', movieImage)
+        movieImgInput.addClass('movie-img')
+        movieCard.append(movieImgInput)
+    }
+}
+
+
 
 // Search button click event
 searchButton.click(() => {
