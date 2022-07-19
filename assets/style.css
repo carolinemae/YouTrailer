@@ -52,7 +52,7 @@ p {
 }
 
 
-/* 
+
 body {
     margin: 0;
 }
@@ -107,8 +107,15 @@ nav {
     width: 200px;
     height: 300px;
     border: 1px solid black;
-} */
+} 
 
 
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
+
+/* Footer Styling */
+
+.card-footer {
+  font-size: x-large;
+  }
+  

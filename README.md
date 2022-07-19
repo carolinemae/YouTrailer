@@ -1,17 +1,34 @@
-## User Story
-```
-AS A drafter
-I WANT to be able to keep track of important tasks
-SO THAT I am able to meet deadlines
-```
+# Project1 Movie Wiki
 
-## Acceptance Criteria
-```
-GIVEN I am keeping track of important tasks
-WHEN I open the application
-THEN I am displayed with the current date at the top of the page
-WHEN I scroll down
-THEN I am shown tasks that require attention or are due today
-WHEN I select a task
-THEN I am presented with the option to reschedule to another day/time
-```
+# Group 2
+
+# Movie Wiki it's an entertainment site which shows movies from 1990 until now.
+
+# Authors
+ - @Ben
+
+ - @Roman
+
+ - @Caroline
+
+ - @Chamath
+
+# Color Reference
+    Color	Hex
+    Example Color	#0a192f#0a192f
+    Example Color	#f8f8f8#f8f8f8
+    Example Color	#00b48a#00b48a
+    Example Color	#00d1a0#00d1a0
+    Related
+    Here are some related projects
+
+
+# Tech Stack
+    As a fullstack development team we use html, CSS & JavaScript. Also we use Bulma frame work to implement the Movie Wiki.
+
+# Client:
+
+# Server:
+
+# Support
+    For support, email fake@fake.com or join our Slack channel.
