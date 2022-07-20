@@ -91,7 +91,7 @@ const createYoutubeSection = id => {
     console.log(id)
     var youtubeUrlId = `https://www.youtube.com/watch?v=${id}`
     console.log(youtubeUrlId)
-
+    movieInfo.empty()
     var movieUrlLink = $('<a>')
     movieUrlLink.text(youtubeUrlId)
     movieUrlLink.attr('href', youtubeUrlId)
@@ -159,7 +159,7 @@ const addListener = (movieTitle, counter) => {
 // Search button click event
 searchButton.click(() => {
     var searchInput = $("#search").val();
-
+    movieInfo.empty()
     var local = localStorage.setItem("keyCount", searchInput);
     var history = $(".history")
     history.append("<li>" +  searchInput + "</li>");           
@@ -167,7 +167,6 @@ searchButton.click(() => {
     searchMovie(searchInput);
 
 });
-
 
 
 //results[0].title
