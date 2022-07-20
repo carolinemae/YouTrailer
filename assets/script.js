@@ -160,7 +160,7 @@ const addListener = (movieTitle, counter) => {
 searchButton.click(() => {
     var searchInput = $("#search").val();
 
-    var local = localStorage.setItem(keyCount, searchInput);
+    var local = localStorage.setItem("keyCount", searchInput);
     var history = $(".history")
     history.append("<li>" +  searchInput + "</li>");           
 
