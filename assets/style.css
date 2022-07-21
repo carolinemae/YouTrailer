@@ -85,6 +85,7 @@ section {
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
+  
   .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -94,6 +95,7 @@ section {
     background: var(--white-color);
     cursor: pointer;
   }
+  
   .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
