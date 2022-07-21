@@ -46,10 +46,6 @@ p {
     width: 200px;
 }
 
-.columns {
-    margin: 0;
-    padding: 0;
-}
 
 
 
@@ -91,8 +87,9 @@ nav {
 }
 
 .right-col {
-    width: 25%;
+    width: 35%;
     padding: var(--universal-padding);
+    
 }
 
 #movies {
@@ -113,9 +110,18 @@ nav {
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
 
+/* Column Right side*/
+
+
 /* Footer Styling */
 
 .card-footer {
   font-size: x-large;
-  }
   
+  }
+/* Twitter styling doesn't work. Icon source CDN linked in html */
+  .fa fa-twitter{
+    font-size:36px;
+    color: lightskyblue;
+  }
+

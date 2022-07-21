@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/style.css" />
   <title>Movie Wiki</title>
 </head>
@@ -171,41 +172,78 @@
             </div>
             </div>
 
-            <div class="column">
+            <div class="column" id="col-right">
+                <div class="bd-notification is-primary"></div>
                 <h2>Right column content</h2>
+
+
+        
+            
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                 
+  
+            
+                     
+                  </div>
             </div>
         </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
     
-    
+    <!-- Footer section-->
     <footer class="card-footer">
+      <div id="wrapper-left"></div>  
         <div class="card-footer-item">
-            <p>
-         <strong>Movie Wiki</strong> Designed by <a href="https://jgthms.com">Group-02</a>. 
-           
-          
-         </p>
+            <p><h3><strong>Movie Wiki</strong></h3></p>
+         <div>
+
+         </div>   
+            <p>Designed by iGroup-02</p> 
         </div>
-    
+    </div>
         <div class="card-footer-item">
-            <p id="card-1"> Follow us </p>
+            <div id="wrapper-right"></div>
+            <p id="card-1"> Follow us on </p>
             <div>
             <span> 
-            <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter"></i>Twitter</a>
+            <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" style="font-size:36px;color: lightskyblue"></i></a>
             </span>
            
         </div>
         <div>
              <p class="card-footer-item">
             <span> 
-               <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i>Facebook</a> 
+               <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size: 36px; color: #4267B2; "></i></a> 
+              
             </span>
+        </div>
+        <div>
+            <span> 
+                <a href="https://www.instagram.com/?hl=en/"><i class="fa fa-instagram" style="font-size:36px; color: lightcoral "></i></a> 
+               
+             </span>
              </p>
+            </div>
         </div>
     
-      </footer>
+     
+      <form action="action_page.php">
+        <div class="container" style="background-color:white">
+          <h2>Subscribe to our Newsletter</h2>
+          <input type="text" placeholder="Name" name="name" required>
+          <input type="text" placeholder="Email address" name="mail" required>
+          <input type="submit" value="Subscribe" ><a href="./assets/index2.html"></a>
+        </div>
+      
+    
+      </form>
+      
+
+    </footer>
+
     </section>
+    <!-- BACKGROUND MUSIC -->
+    <audio src="Clair de Lune.mp3" autoplay loop></audio>
     
 </body>
