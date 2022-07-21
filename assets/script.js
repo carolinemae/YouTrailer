@@ -101,8 +101,7 @@ const createYoutubeSection = id => {
 
 //ADD IN THE FUNCTION TO CREATE THE IMDB INFO AND YOUTUBE TRAILER LINK IN RIGHT SIDE COLUMN
 
-// Function intake the API response and then creates elements of the Movie Cards containing- title, year and poster image
-
+// Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
 const createCard = response => {
     console.log(response)
     var movieTitle;

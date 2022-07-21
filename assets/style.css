@@ -47,6 +47,10 @@ p {
     
 }
 
+.movie-title {
+    text-decoration: underline;
+}
+
 .columns {
     margin: 0;
     padding: 0;
