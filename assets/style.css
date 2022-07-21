@@ -103,3 +103,7 @@ section {
     background: var(--white-color);
     cursor: pointer;
   }
+  
+  #clickedTitle {
+    list-style: none;
+  }
