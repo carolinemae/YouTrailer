@@ -1,5 +1,6 @@
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn";
+var apiKey = "k_q5dx85dn"; //k_yu9dk035
+
 var movieResult;
 var movieInfo = $('#movie-info')
 
@@ -154,9 +155,11 @@ const addListener = (movieTitle, counter) => {
     })
 }
 // Search button click event
-searchButton.click(() => {
+searchButton.on('click', event => {
+    event.preventDefault();
     var searchInput = $("#search").val();
-    movieInfo.empty()
+    console.log(searchInput)
+    movieInfo.empty();
             
 
     searchMovie(searchInput);
