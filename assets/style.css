@@ -140,3 +140,7 @@ nav {
     background: #ffffff;
     cursor: pointer;
   }
+  
+  #clickedTitle {
+    list-style: none;
+  }

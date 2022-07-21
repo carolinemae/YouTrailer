@@ -3,9 +3,6 @@ var apiKey = "k_q5dx85dn";
 var movieResult;
 var movieInfo = $('#movie-info')
 
-
-function searchMovie(title) {
-
 var sliderRating = document.getElementById("myRangeRating");
 var outputRating = document.getElementById("rating");
 outputRating.innerHTML = sliderRating.value; // Display the default slider value
@@ -27,13 +24,10 @@ var yearLow = outputYear.innerHTML = this.value;
 
 var genres = $('#genre :selected').text()
 
-console.log(genres);
-
 for (var i = 0; i < localStorage.length; i++) {
     var title = localStorage.getItem(i);
 }
 var keyCount = 0;
-}
 
 // https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
 function searchMovie(title, year, rating) {
@@ -153,16 +147,17 @@ const addListener = (movieTitle, counter) => {
         clickedTitle = movieTitle
         console.log(clickedTitle)
         console.log("Worked!")  
-        getYoutubeApi(clickedTitle)  
+        getYoutubeApi(clickedTitle) 
+        var local = localStorage.setItem("keyCount", clickedTitle);
+        var history = $(".history")
+        history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
     })
 }
 // Search button click event
 searchButton.click(() => {
     var searchInput = $("#search").val();
     movieInfo.empty()
-    var local = localStorage.setItem("keyCount", searchInput);
-    var history = $(".history")
-    history.append("<li>" +  searchInput + "</li>");           
+            
 
     searchMovie(searchInput);
 
