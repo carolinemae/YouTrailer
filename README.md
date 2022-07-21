@@ -1,34 +1,45 @@
-# Project1 Movie Wiki
 
-# Group 2
+# Movie Wiki
 
-# Movie Wiki it's an entertainment site which shows movies from 1990 until now.
+Movie Wiki it's an entertainment site which shows movies from 1990 until now. 
 
-# Authors
- - @Ben
+User can browse movies by catagory, year of released and  the rating.
 
- - @Roman
+# About Movie Wiki
 
- - @Caroline
+In 2022 July, 25 Movie Wiki presented by a group of 4 students as a 1st group project of FullStack Bootcamp course conducted by University of Adelaide. 
 
- - @Chamath
+The team got 10days to plan, design & finish the project. 
 
-# Color Reference
-    Color	Hex
-    Example Color	#0a192f#0a192f
-    Example Color	#f8f8f8#f8f8f8
-    Example Color	#00b48a#00b48a
-    Example Color	#00d1a0#00d1a0
-    Related
-    Here are some related projects
+Firstly the sketch drafted by Caroline with couple of options. 
+
+The team choosed the current layout and started implement with using Bulma framework and with additional HTML, CSS & JavaScript.
+
+# For User
 
 
-# Tech Stack
-    As a fullstack development team we use html, CSS & JavaScript. Also we use Bulma frame work to implement the Movie Wiki.
 
-# Client:
 
-# Server:
+## Authors
 
-# Support
-    For support, email fake@fake.com or join our Slack channel.
+- [@Ben](https://www.github.com/octokatherine)
+
+- @Roman
+
+- @Caroline
+
+- @Chamath
+
+## Color Reference
+
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
+| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
+| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
+| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+
+
+## Support
+
+For support, email fake@fake.com or join our Slack channel.
