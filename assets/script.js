@@ -1,17 +1,51 @@
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn";
+var apiKey = "k_q5dx85dn"; //k_yu9dk035
+var youtubePreview = $(".preview");
+
 var movieResult;
 var movieInfo = $('#movie-info')
 
 
+var sliderRating = document.getElementById("myRangeRating");
+var outputRating = document.getElementById("rating");
+outputRating.innerHTML = sliderRating.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+sliderRating.oninput = function() {
+var ratingLow = outputRating.innerHTML = this.value;
+}
+
+var sliderYear = document.getElementById("myRangeYear");
+var outputYear = document.getElementById("year");
+outputYear.innerHTML = sliderYear.value; // Display the default slider value
+
+
+// Update the current slider value (each time you drag the slider handle)
+sliderYear.oninput = function() {
+var yearLow = outputYear.innerHTML = this.value;
+}
+
+var genres = $('#genre :selected').text()
+
+for (var i = 0; i < localStorage.length; i++) {
+    var title = localStorage.getItem(i);
+}
+var keyCount = 0;
+
+// https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
+function searchMovie(title, year, rating) {
+=======
+
 function searchMovie(titleOne) {
+
     var rating = $("#rating").text()
     var year = $("#year").text()
     var genres = $('#genre :selected').text()
     console.log("Second work")
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
-    console.log("third work")
+
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_2fn865ld?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    
     if (title == "") {
         alert('Please insert a movie title.')
     } else {
@@ -57,19 +91,28 @@ const checkTitleSpaces = title => {
 // Function that gets the video URL id
 const createYoutubeSection = id => {
     console.log(id)
-    var youtubeUrlId = `https://www.youtube.com/watch?v=${id}`
-    console.log(youtubeUrlId)
-    movieInfo.empty()
-    var movieUrlLink = $('<a>')
-    movieUrlLink.text(youtubeUrlId)
-    movieUrlLink.attr('href', youtubeUrlId)
-    movieUrlLink.attr('target', '_blank')
-    movieInfo.append(movieUrlLink)
-}
+    var movieLink = $('.youTube')
+    var youtubeUrlId = "https://www.youtube.com/embed/" + id
+    movieLink.attr('src', youtubeUrlId)
+//     // console.log(youtubeUrlId)
+//     // movieInfo.empty()
+//     // var movieUrlLink = $('<a>')
+//     // movieUrlLink.text(youtubeUrlId)
+//     // movieUrlLink.attr('href', youtubeUrlId)
+//     // movieUrlLink.attr('target', '_blank')
+//     // movieInfo.append(movieUrlLink)
+//     // youtubePreview.append(movieInfo)
+    youtubePreview.removeClass("hidden")
+    var closebutton = $("#closebutton");
+    closebutton.on('click', event => {
+        $(".preview").remove();
+    })
+    return
+};
 
 //ADD IN THE FUNCTION TO CREATE THE IMDB INFO AND YOUTUBE TRAILER LINK IN RIGHT SIDE COLUMN
 
-// Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
+// Function intake the API response and then creates elements of the Movie Cards containing- title, year and poster image
 const createCard = response => {
     console.log(response)
     var movieTitle;
@@ -79,7 +122,7 @@ const createCard = response => {
     var clickedTitle;
     var counter = 0
     
-    for (var i = 0; i < 8; i ++){
+    for (var i = 0; i < 31; i ++){
         var movieCard = $('<div>')
         var movieTitleInput = $('<h3>')
         var movieYearInput = $('<p>')
@@ -120,23 +163,18 @@ const addListener = (movieTitle, counter) => {
         clickedTitle = movieTitle
         console.log(clickedTitle)
         console.log("Worked!")  
-        getYoutubeApi(clickedTitle)  
+        getYoutubeApi(clickedTitle) 
+        var local = localStorage.setItem("keyCount", clickedTitle);
+        var history = $(".history")
+        history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
     })
-}
+};
+
 // Search button click event
-searchButton.click(() => {
+searchButton.on('click', event => {
+    event.preventDefault();
     var searchInput = $("#search").val();
-    movieInfo.empty()
-    var local = localStorage.setItem("keyCount", searchInput);
-    var history = $(".history")
-    history.append("<li>" +  searchInput + "</li>");           
-    console.log("Worl")
+    console.log(searchInput)
+    movieInfo.empty();
     searchMovie(searchInput);
-
 });
-
-
-//results[0].title
-//https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.7273_AL_.jpg
-// img src ="${val.image_url}
-

@@ -19,6 +19,15 @@
                 <h1 class="title is-1">Movie Wiki</h1>
             </div>
         </header>
+
+        <div class="preview hidden">
+        <iframe class="youTube" width="560" height="315" src="https://www.youtube.com/embed/YoHD9XEInc0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+        <button class="button is-small" id="closebutton">X</button>
+        </div>    
+        
+
+        
         
         <div class="columns is-flex-mobile">
             <div class="column is-narrow" id="nav">
@@ -75,6 +84,7 @@
                     <section id="button-sec is-justify-content-center">
                         <button class="button is-small" id="searchButton">Search <span class="material-symbols-outlined">Search</span></button>
                     </section>
+                    <section class="history"></section>
                 </form>
             </div>
 
@@ -85,7 +95,9 @@
             </div>
 
             <div class="column">
+
                 <div id="movie-info"></div>
+
             </div>
         </div>
     
