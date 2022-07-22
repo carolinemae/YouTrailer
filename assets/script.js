@@ -5,6 +5,7 @@ var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info')
 
+
 var sliderRating = document.getElementById("myRangeRating");
 var outputRating = document.getElementById("rating");
 outputRating.innerHTML = sliderRating.value; // Display the default slider value
@@ -33,21 +34,26 @@ var keyCount = 0;
 
 // https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
 function searchMovie(title, year, rating) {
+=======
+
+function searchMovie(titleOne) {
+
     var rating = $("#rating").text()
     var year = $("#year").text()
     var genres = $('#genre :selected').text()
-
+    console.log("Second work")
     //APi Link goes here
+
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_2fn865ld?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     if (title == "") {
         alert('Please insert a movie title.')
-        console.log(title);
     } else {
         $.ajax({
             url: urlMovie,
             method: "GET"
         }).then(function (response) {
+            console.log("response OK")
             var response = response.results
             movieResult = $("#movies").append("<div>");
             movieResult.empty();
