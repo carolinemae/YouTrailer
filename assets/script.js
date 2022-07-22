@@ -96,18 +96,17 @@ const createYoutubeSection = id => {
 //     // movieUrlLink.attr('target', '_blank')
 //     // movieInfo.append(movieUrlLink)
 //     // youtubePreview.append(movieInfo)
-     youtubePreview.removeClass("hidden")
-     var closebutton = $("#closebutton");
-     closebutton.on('click', event => {
+    youtubePreview.removeClass("hidden")
+    var closebutton = $("#closebutton");
+    closebutton.on('click', event => {
         $(".preview").remove();
-     })
-     return
+    })
+    return
 };
 
 //ADD IN THE FUNCTION TO CREATE THE IMDB INFO AND YOUTUBE TRAILER LINK IN RIGHT SIDE COLUMN
 
 // Function intake the API response and then creates elements of the Movie Cards containing- title, year and poster image
-
 const createCard = response => {
     console.log(response)
     var movieTitle;
@@ -117,7 +116,7 @@ const createCard = response => {
     var clickedTitle;
     var counter = 0
     
-    for (var i = 0; i < 8; i ++){
+    for (var i = 0; i < 31; i ++){
         var movieCard = $('<div>')
         var movieTitleInput = $('<h3>')
         var movieYearInput = $('<p>')
@@ -163,22 +162,13 @@ const addListener = (movieTitle, counter) => {
         var history = $(".history")
         history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
     })
-}
+};
+
 // Search button click event
 searchButton.on('click', event => {
     event.preventDefault();
     var searchInput = $("#search").val();
     console.log(searchInput)
     movieInfo.empty();
-            
-
     searchMovie(searchInput);
-
 });
-
-
-
-
-//results[0].title
-//https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.7273_AL_.jpg
-// img src ="${val.image_url}
