@@ -108,3 +108,41 @@ section {
     list-style: none;
     color: #e4e4e4;
   }
+
+  .youTube {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    margin-top: 58px;
+    margin-left: 300px;
+    background-color: #000000f5;
+    width: 700px;
+    height: 450px;
+    border-radius: 20px;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .hidden {
+    display: none;
+  }
+  
+  #closebutton {
+    position: absolute;
+    top: 164px;
+    left: 980px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    color: #000000;
+    border-radius: 50%;   
+}
+ 
+.movie-title {
+    cursor: pointer;
+}
+
+#clickedTitle {
+    cursor: default;
+}

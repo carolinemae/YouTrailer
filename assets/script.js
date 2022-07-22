@@ -1,5 +1,6 @@
 var searchButton = $("#searchButton");
 var apiKey = "k_q5dx85dn"; //k_yu9dk035
+var youtubePreview = $(".preview");
 
 var movieResult;
 var movieInfo = $('#movie-info')
@@ -37,8 +38,8 @@ function searchMovie(title, year, rating) {
     var genres = $('#genre :selected').text()
 
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
-
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_2fn865ld?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    
     if (title == "") {
         alert('Please insert a movie title.')
         console.log(title);
@@ -84,15 +85,24 @@ const checkTitleSpaces = title => {
 // Function that gets the video URL id
 const createYoutubeSection = id => {
     console.log(id)
-    var youtubeUrlId = `https://www.youtube.com/watch?v=${id}`
-    console.log(youtubeUrlId)
-    movieInfo.empty()
-    var movieUrlLink = $('<a>')
-    movieUrlLink.text(youtubeUrlId)
-    movieUrlLink.attr('href', youtubeUrlId)
-    movieUrlLink.attr('target', '_blank')
-    movieInfo.append(movieUrlLink)
-}
+    var movieLink = $('.youTube')
+    var youtubeUrlId = "https://www.youtube.com/embed/" + id
+    movieLink.attr('src', youtubeUrlId)
+//     // console.log(youtubeUrlId)
+//     // movieInfo.empty()
+//     // var movieUrlLink = $('<a>')
+//     // movieUrlLink.text(youtubeUrlId)
+//     // movieUrlLink.attr('href', youtubeUrlId)
+//     // movieUrlLink.attr('target', '_blank')
+//     // movieInfo.append(movieUrlLink)
+//     // youtubePreview.append(movieInfo)
+     youtubePreview.removeClass("hidden")
+     var closebutton = $("#closebutton");
+     closebutton.on('click', event => {
+        $(".preview").remove();
+     })
+     return
+};
 
 //ADD IN THE FUNCTION TO CREATE THE IMDB INFO AND YOUTUBE TRAILER LINK IN RIGHT SIDE COLUMN
 
@@ -167,7 +177,8 @@ searchButton.on('click', event => {
 });
 
 
+
+
 //results[0].title
 //https://imdb-api.com/images/original/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_Ratio0.7273_AL_.jpg
 // img src ="${val.image_url}
-
