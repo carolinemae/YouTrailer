@@ -1,5 +1,5 @@
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn"; //k_yu9dk035
+var apiKey = "k_2fn865ld"; //k_yu9dk035 k_q5dx85dn
 
 var movieResult;
 var movieInfo = $('#movie-info')
@@ -37,7 +37,7 @@ function searchMovie(title, year, rating) {
     var genres = $('#genre :selected').text()
 
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
 
     if (title == "") {
         alert('Please insert a movie title.')
@@ -105,7 +105,7 @@ const createCard = response => {
     var movieRating;
     var movieImage;
     var clickedTitle;
-    var counter = 0
+    var counter = 0;
     
     for (var i = 0; i < 8; i ++){
         var movieCard = $('<div>')
@@ -117,7 +117,7 @@ const createCard = response => {
 
         movieResult.append(movieCard)
 
-        movieTitle = response[i].title        
+        movieTitle = response[i].title
         movieTitleInput.text(movieTitle)
         movieTitleInput.addClass('movie-title')
         movieTitleInput.addClass(`movie-${counter}`)
