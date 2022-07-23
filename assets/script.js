@@ -33,11 +33,14 @@ var keyCount = 0;
 
 // Function that takes in title, year and rating and requests to the IMDB API
 function searchMovie(title, year, rating) {
+
     var rating = $("#rating").text();
     var year = $("#year").text();
     var genres = $('#genre :selected').text();
 
+
     //APi Link goes here
+
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
@@ -98,6 +101,7 @@ const createCard = response => {
     var counter = 0;
     
     for (var i = 0; i < 31; i ++){
+
         var movieCard = $('<div>');
         var movieTitleInput = $('<h3>');
         var movieYearInput = $('<p>');
@@ -129,6 +133,7 @@ const createCard = response => {
         addListener(movieTitle, movieYear, counter);
     };
 };
+
 
 // Event listener to take in movie title and calls the youtube API function
 const addListener = (movieTitle, year, counter) => {
