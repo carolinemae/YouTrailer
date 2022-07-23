@@ -38,7 +38,7 @@ function searchMovie(title, year, rating) {
     var genres = $('#genre :selected').text();
 
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_2fn865ld?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
         url: urlMovie,
@@ -54,8 +54,7 @@ function searchMovie(title, year, rating) {
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20movie%20trailer&key=AIzaSyDZg1iQijJK7t80EiYj_vlZDeCJnngwux0`;
-    console.log(youtubeUrl)
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyDZg1iQijJK7t80EiYj_vlZDeCJnngwux0`;
     fetch(youtubeUrl)
         .then(function (response) {
             return response.json();
@@ -135,22 +134,17 @@ const createCard = response => {
 const addListener = (movieTitle, year, counter) => {
     $(`.movie-${counter}`).on('click', event => {
         event.preventDefault;
-        console.log(year)
         clickedTitle = movieTitle;
         var newYear = year.replaceAll('(', '').replaceAll(')', '');
 
         if (newYear.includes(' ')) {
             var newYearSpace = newYear.replaceAll(' ', '%20');
-            console.log(newYearSpace)
             getYoutubeApi(clickedTitle, newYearSpace);
 
         } else {
-            console.log(newYear)
             getYoutubeApi(clickedTitle, newYear);
-            
         };
 
-        console.log(newYear)
         var local = localStorage.setItem("keyCount", clickedTitle);
         var history = $(".history");
         history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
