@@ -1,6 +1,6 @@
 // Global Variables
 var searchButton = $("#searchButton");
-var apiKey = "k_2fn865ld"; //k_yu9dk0350 k_q5dx85dn
+var apiKey = "k_q5dx85dn"; //k_yu9dk0350 k_2fn865ld
 var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info');
@@ -37,13 +37,9 @@ function searchMovie(title, year, rating) {
     var rating = $("#rating").text();
     var year = $("#year").text();
     var genres = $('#genre :selected').text();
-    var rating = $("#rating").text()
-    var year = $("#year").text()
-    var genres = $('#genre :selected').text()
-    console.log("Second work")
 
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
         url: urlMovie,
@@ -103,6 +99,7 @@ const createCard = response => {
     var counter = 0;
     
     for (var i = 0; i < 31; i ++){
+
         var movieCard = $('<div>');
         var movieTitleInput = $('<h3>');
         var movieYearInput = $('<p>');
@@ -149,7 +146,6 @@ const addListener = (movieTitle, year, counter) => {
         } else {
             getYoutubeApi(clickedTitle, newYear);
         };
-
 
         var local = localStorage.setItem("keyCount", clickedTitle);
         var history = $(".history");
