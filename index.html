@@ -26,10 +26,7 @@
         <button class="button is-small" id="closebutton">X</button>
         </div>    
         
-
-        
-        
-        <div class="columns is-flex-mobile">
+        <div class="columns">
             <div class="column is-narrow" id="nav">
                 <form>
                     <section id="search-sec">
@@ -39,6 +36,7 @@
                     <section id="genre-sec">
                         <label for="genre" class="has-text-white">Choose a genre:</label><br>
                         <select name="genre" id="genre">
+                            <option value="">Any</option>
                             <option value="action">Action</option>
                             <option value="adventure">Adventure</option>
                             <option value="animation">Animation</option>
@@ -88,17 +86,18 @@
                 </form>
             </div>
 
-            <div class="column is-9">
+            <!-- <div class="column is-9"> -->
+            <div class="column" id="page-content">
                 <!-- Append "Search results for..." from script -->
                 <div class="columns is-multiline is-centered" id="movies">
                 </div>
             </div>
 
-            <div class="column">
+            <!-- <div class="column"> -->
 
-                <div id="movie-info"></div>
+                <!-- <div id="movie-info"></div> -->
 
-            </div>
+            <!-- </div> -->
         </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
