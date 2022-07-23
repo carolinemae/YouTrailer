@@ -1,5 +1,7 @@
 var searchButton = $("#searchButton");
+
 var apiKey = "k_2fn865ld"; //k_yu9dk0350 k_q5dx85dn
+
 var youtubePreview = $(".preview");
 
 var movieResult;
@@ -33,9 +35,9 @@ for (var i = 0; i < localStorage.length; i++) {
 var keyCount = 0;
 
 // https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
-// function searchMovie(title, year, rating) {
 
-function searchMovie(titleOne) {
+function searchMovie(title, year, rating) {
+
 
     var rating = $("#rating").text()
     var year = $("#year").text()
