@@ -1,10 +1,6 @@
 var searchButton = $("#searchButton");
-<<<<<<< HEAD
 var apiKey = "k_2fn865ld"; //k_yu9dk035 k_q5dx85dn
-=======
-var apiKey = "k_q5dx85dn"; //k_yu9dk035
 var youtubePreview = $(".preview");
->>>>>>> bb6c4e0978aabbd3c3cbfba6216e41337e63f055
 
 var movieResult;
 var movieInfo = $('#movie-info')
@@ -38,21 +34,13 @@ var keyCount = 0;
 
 // https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
 function searchMovie(title, year, rating) {
-=======
-
-function searchMovie(titleOne) {
 
     var rating = $("#rating").text()
     var year = $("#year").text()
     var genres = $('#genre :selected').text()
     console.log("Second work")
     //APi Link goes here
-<<<<<<< HEAD
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
-=======
->>>>>>> bb6c4e0978aabbd3c3cbfba6216e41337e63f055
-
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_2fn865ld?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     if (title == "") {
         alert('Please insert a movie title.')
