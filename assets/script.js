@@ -83,8 +83,11 @@ const createYoutubeSection = id => {
     movieLink.attr('src', youtubeUrlId);
     youtubePreview.removeClass("hidden");
     var closebutton = $("#closebutton");
+    movieResult.attr('style','display: none');
+
     closebutton.on('click', event => {
         $(".preview").remove();
+        movieResult.attr('style','display: flex');
     })
     return;
 };
@@ -107,6 +110,7 @@ const createCard = response => {
         var movieImgInput = $('<img>');
         counter++;
 
+        movieCard.addClass('movie-card');
         movieResult.append(movieCard);
 
         movieTitle = response[i].title;
@@ -117,10 +121,12 @@ const createCard = response => {
 
         movieYear = response[i].description;
         movieYearInput.text(movieYear);
+        movieYearInput.addClass('movie-year');
         movieCard.append(movieYearInput);
 
         movieRating = response[i].imDbRating;
         movieRatingInput.text(movieRating);
+        movieRatingInput.addClass('movie-rating');
         movieCard.append(movieRatingInput);
 
         movieImage = response[i].image;

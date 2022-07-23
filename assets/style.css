@@ -33,6 +33,10 @@ h2 {
     width: 150px;
 }
 
+.history {
+    display: flex;
+}
+
 #movies div {
     padding: 20px;
     flex-wrap: wrap;
@@ -113,11 +117,8 @@ section {
 .youTube {
     display: flex;
     flex-wrap: wrap;
-    position: fixed;
-    margin-top: 58px;
-    margin-left: 300px;
     background-color: #000000f5;
-    width: 700px;
+    width: 100%;
     height: 450px;
     border-radius: 20px;
     align-content: space-around;
@@ -170,6 +171,9 @@ section {
     }
     #search, #genre, #searchButton {
         width: 100%;
+    }  
+    .history {
+        display: none;
     }
     .columns.is-multiline {
         display: inline-flex;
