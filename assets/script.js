@@ -1,5 +1,7 @@
 var searchButton = $("#searchButton");
-var apiKey = "k_2fn865ld"; //k_yu9dk035 k_q5dx85dn
+
+var apiKey = "k_2fn865ld"; //k_yu9dk0350 k_q5dx85dn
+
 var youtubePreview = $(".preview");
 
 var movieResult;
@@ -33,7 +35,9 @@ for (var i = 0; i < localStorage.length; i++) {
 var keyCount = 0;
 
 // https://imdb-api.com/API/AdvancedSearch/k_yu9dk035?title=inception&user_rating=1.0,10&release_date=1950-01-01,2022-01-01&genres=action&sort=moviemeter,desc
+
 function searchMovie(title, year, rating) {
+
 
     var rating = $("#rating").text()
     var year = $("#year").text()
@@ -107,6 +111,7 @@ const createYoutubeSection = id => {
 };
 
 //ADD IN THE FUNCTION TO CREATE THE IMDB INFO AND YOUTUBE TRAILER LINK IN RIGHT SIDE COLUMN
+// Commented out right side column in HTML as the youtube trailer shows as pop up? - CT
 
 // Function intake the API response and then creates elements of the Movie Cards containing- title, year and poster image
 const createCard = response => {
@@ -127,6 +132,7 @@ const createCard = response => {
         counter++
 
         movieResult.append(movieCard)
+        movieCard.addClass('movie-card')
 
         movieTitle = response[i].title
         movieTitleInput.text(movieTitle)
@@ -136,10 +142,12 @@ const createCard = response => {
 
         movieYear = response[i].description
         movieYearInput.text(movieYear)
+        movieYearInput.addClass('movie-year')
         movieCard.append(movieYearInput)
 
         movieRating = response[i].imDbRating
-        movieRatingInput.text(movieRating)
+        movieRatingInput.text('Rating: ' + movieRating)
+        movieRatingInput.addClass('movie-rating')
         movieCard.append(movieRatingInput)
 
         movieImage = response[i].image
@@ -158,7 +166,7 @@ const addListener = (movieTitle, counter) => {
         event.preventDefault;
         clickedTitle = movieTitle
         console.log(clickedTitle)
-        console.log("Worked!")  
+        console.log("Worked!")
         getYoutubeApi(clickedTitle) 
         var local = localStorage.setItem("keyCount", clickedTitle);
         var history = $(".history")
