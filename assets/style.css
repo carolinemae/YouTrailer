@@ -69,6 +69,10 @@ section {
     height: 250px;
 }
 
+.movie-title {
+    text-decoration: underline;
+}
+
 .columns {
     margin: 0;
     padding: 0;

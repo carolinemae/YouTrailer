@@ -89,7 +89,7 @@ const createYoutubeSection = id => {
     return;
 };
 
-// Function intake the API response and then creates elements of the Movie Cards containing- title, year and poster image
+// Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
 const createCard = response => {
     var movieTitle;
     var movieYear;
