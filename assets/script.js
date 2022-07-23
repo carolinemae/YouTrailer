@@ -164,7 +164,6 @@ const addListener = (movieTitle, year, counter) => {
 const saveLocal = clickedTitle => {
     if (savedLocal === null) {
         savedLocal = [clickedTitle];
-        console.log(savedLocal)
         localStorage.setItem("keyCount", JSON.stringify(savedLocal));
         createHistoryList(clickedTitle);
         return;
