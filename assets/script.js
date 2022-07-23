@@ -1,5 +1,6 @@
 // Global Variables
 var searchButton = $("#searchButton");
+var apiKey = "k_2fn865ld"; //k_yu9dk0350 k_q5dx85dn
 var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info');
@@ -36,6 +37,10 @@ function searchMovie(title, year, rating) {
     var rating = $("#rating").text();
     var year = $("#year").text();
     var genres = $('#genre :selected').text();
+    var rating = $("#rating").text()
+    var year = $("#year").text()
+    var genres = $('#genre :selected').text()
+    console.log("Second work")
 
     //APi Link goes here
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
@@ -144,6 +149,7 @@ const addListener = (movieTitle, year, counter) => {
         } else {
             getYoutubeApi(clickedTitle, newYear);
         };
+
 
         var local = localStorage.setItem("keyCount", clickedTitle);
         var history = $(".history");
