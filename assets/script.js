@@ -4,6 +4,8 @@ var apiKey = "k_q5dx85dn"; //k_yu9dk0350 k_2fn865ld
 var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info');
+var counter = 0;
+var savedLocal = [];
 
 // Slider creation on UI
 var sliderRating = document.getElementById("myRangeRating");
@@ -18,7 +20,6 @@ var ratingLow = outputRating.innerHTML = this.value;
 var sliderYear = document.getElementById("myRangeYear");
 var outputYear = document.getElementById("year");
 outputYear.innerHTML = sliderYear.value; // Display the default slider value
-
 
 // Update the current slider value (each time you drag the slider handle)
 sliderYear.oninput = function() {
@@ -54,10 +55,13 @@ function searchMovie(title, year, rating) {
 
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
+    console.log("here")
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyDZg1iQijJK7t80EiYj_vlZDeCJnngwux0`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyA2gptcVzPO8SqYHpZjG-85g0JM23iq4QI`;
+    console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
+            console.log(response)
             return response.json();
         })
         .then(function (data) {
@@ -84,7 +88,7 @@ const createYoutubeSection = id => {
     youtubePreview.removeClass("hidden");
     var closebutton = $("#closebutton");
     movieResult.attr('style','display: none');
-
+    console.log("youtube work")
     closebutton.on('click', event => {
         $(".preview").remove();
         movieResult.attr('style','display: flex');
@@ -141,7 +145,7 @@ const createCard = response => {
 // Event listener to take in movie title and calls the youtube API function
 const addListener = (movieTitle, year, counter) => {
     $(`.movie-${counter}`).on('click', event => {
-        event.preventDefault;
+        event.preventDefault();
         clickedTitle = movieTitle;
         var newYear = year.replaceAll('(', '').replaceAll(')', '');
 
@@ -152,12 +156,62 @@ const addListener = (movieTitle, year, counter) => {
         } else {
             getYoutubeApi(clickedTitle, newYear);
         };
-
-        var local = localStorage.setItem("keyCount", clickedTitle);
-        var history = $(".history");
-        history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
+        saveLocal(clickedTitle)
     })
 };
+
+// Function that saves the titles to local storage with JSON
+const saveLocal = clickedTitle => {
+    if (savedLocal === null) {
+        savedLocal = [clickedTitle];
+        console.log(savedLocal)
+        localStorage.setItem("keyCount", JSON.stringify(savedLocal));
+        createHistoryList(clickedTitle);
+        return;
+    } else if (savedLocal.includes(clickedTitle)) {
+        return;
+    } else {
+        savedLocal.push(clickedTitle);
+        localStorage.setItem("keyCount", JSON.stringify(savedLocal));
+    }
+    createHistoryList(clickedTitle)
+}
+
+// Function that creates the history list
+const createHistoryList = clickedTitle => {
+    counter ++
+    var history = $(".history");
+    history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`)
+    historyListener(clickedTitle, counter)
+}
+
+// Function that adds listeners to the titles in history section to open up YouTube video once clicked
+const historyListener = (clickedTitle, counter) => {
+    $(`.history-click-${counter}`).on('click', event => {
+        event.preventDefault();
+        console.log("work")
+        getYoutubeApi(clickedTitle)
+    })
+}
+
+// Function that initializes on refreshing the page and parses the stored array from the local storage through JSON 
+const init = () => {
+    savedTitles = JSON.parse(localStorage.getItem("keyCount"));
+    savedLocal = savedTitles;
+    if (savedTitles === null) {
+        return;
+    } else {
+        var count = 0
+        var titleMovie;
+        for (var i = 0; i < savedTitles.length; i++) {
+            count++
+            titleMovie = savedTitles[i]
+            var history = $(".history");
+            history.append(`<li class="clickedTitle history-click-${counter}">${titleMovie}</li>`)
+            historyListener(savedTitles[i], counter)
+        }
+    }
+}
 
 // Search button click event
 searchButton.on('click', event => {
@@ -166,3 +220,5 @@ searchButton.on('click', event => {
     movieInfo.empty();
     searchMovie(searchInput);
 });
+
+init();

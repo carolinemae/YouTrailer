@@ -35,6 +35,7 @@ h2 {
 
 .history {
     display: flex;
+    flex-direction: column;
 }
 
 #movies div {
@@ -109,9 +110,10 @@ section {
     cursor: pointer;
 }
 
-#clickedTitle {
+.clickedTitle {
     list-style: none;
     color: #e4e4e4;
+    cursor: default;
 }
 
 .youTube {
@@ -143,10 +145,6 @@ section {
 
 .movie-title {
     cursor: pointer;
-}
-
-#clickedTitle {
-    cursor: default;
 }
 
 @media screen and (max-width: 769px ) {
