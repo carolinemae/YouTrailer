@@ -9,27 +9,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./assets/style.css" />
-  <title>Movie Wiki</title>
+  <title>YouTrailer</title>
 </head>
 
 <body>
 
         <header class="hero py-5 px-1">
             <div class="hero-body p-2">
-                <h1 class="title is-1">Movie Wiki</h1>
+                <h1 class="title is-1">YouTrailer</h1>
             </div>
         </header>
-
-        <div class="preview hidden">
-        <iframe class="youTube" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-        </iframe>
-        <button class="button is-small" id="closebutton">X</button>
-        </div>    
         
-
-        
-        
-        <div class="columns is-flex-mobile">
+        <div class="columns">
             <div class="column is-narrow" id="nav">
                 <form>
                     <section id="search-sec">
@@ -39,6 +30,7 @@
                     <section id="genre-sec">
                         <label for="genre" class="has-text-white">Choose a genre:</label><br>
                         <select name="genre" id="genre">
+                            <option value="">Any</option>
                             <option value="action">Action</option>
                             <option value="adventure">Adventure</option>
                             <option value="animation">Animation</option>
@@ -88,17 +80,23 @@
                 </form>
             </div>
 
-            <div class="column is-9">
+            <!-- <div class="column is-9"> -->
+            <div class="column" id="page-content">
                 <!-- Append "Search results for..." from script -->
                 <div class="columns is-multiline is-centered" id="movies">
                 </div>
+                <div class="preview hidden">
+                    <iframe class="youTube" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                    <button class="button is-small" id="closebutton">X</button>
+                </div>
             </div>
 
-            <div class="column">
+            <!-- <div class="column"> -->
 
-                <div id="movie-info"></div>
+                <!-- <div id="movie-info"></div> -->
 
-            </div>
+            <!-- </div> -->
         </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
