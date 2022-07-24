@@ -58,7 +58,7 @@ function searchMovie(title, year, rating) {
 const getYoutubeApi = (title, year) => {
     console.log("here")
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyCZOprYZ1pcrR5JMARF4XUc2PkR58GDPBs`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
     console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
@@ -66,6 +66,7 @@ const getYoutubeApi = (title, year) => {
             return response.json();
         })
         .then(function (data) {
+            console.log(data)
             var movieYoutubeId = data.items[0].id.videoId;
             createYoutubeSection(movieYoutubeId);
         })
@@ -91,8 +92,9 @@ const createYoutubeSection = id => {
     movieResult.attr('style','display: none');
     console.log("youtube work")
     closebutton.on('click', event => {
+        event.preventDefault();
         $(".preview").remove();
-        movieResult.attr('style','display: flex');
+        movieResult.attr('style','display: visible');
     })
     return;
 };
@@ -175,7 +177,7 @@ const saveLocal = clickedTitle => {
         localStorage.setItem("keyCount", JSON.stringify(savedLocal));
     }
     createHistoryList(clickedTitle);
-}
+};
 
 // Function that creates the history list
 const createHistoryList = clickedTitle => {
@@ -183,7 +185,7 @@ const createHistoryList = clickedTitle => {
     var history = $(".history");
     history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`);
     historyListener(clickedTitle, counter);
-}
+};
 
 // Function that adds listeners to the titles in history section to open up YouTube video once clicked
 const historyListener = (clickedTitle, counter) => {
@@ -191,7 +193,7 @@ const historyListener = (clickedTitle, counter) => {
         event.preventDefault();
         getYoutubeApi(clickedTitle);
     })
-}
+};
 
 // Function that initializes on refreshing the page and parses the stored array from the local storage through JSON 
 const init = () => {
@@ -209,8 +211,8 @@ const init = () => {
             history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`);
             historyListener(savedTitles[i], count);
         }
-    }
-}
+    };
+};
 
 // Search button click event
 searchButton.on('click', event => {
@@ -220,4 +222,5 @@ searchButton.on('click', event => {
     searchMovie(searchInput);
 });
 
+// Calling the initialization function when page refreshes
 init();
