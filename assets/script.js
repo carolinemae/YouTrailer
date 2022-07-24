@@ -207,8 +207,8 @@ const init = () => {
             count++
             titleMovie = savedTitles[i]
             var history = $(".history");
-            history.append(`<li class="clickedTitle history-click-${counter}">${titleMovie}</li>`)
-            historyListener(savedTitles[i], counter)
+            history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`)
+            historyListener(savedTitles[i], count)
         }
     }
 }
