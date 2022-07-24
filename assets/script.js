@@ -7,11 +7,7 @@ var movieResult;
 var movieInfo = $('#movie-info');
 var counter = 0;
 var savedLocal = [];
-var closebutton = $("#closebutton");
-
-var movieInfo = $('#movie-info');
-var counter = 0;
-var savedLocal = [];
+var closeButton = $("#closebutton");
 
 
 // Slider creation on UI
@@ -54,7 +50,6 @@ function searchMovie(title, year, rating) {
         url: urlMovie,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
         var response = response.results;
         movieResult = $("#movies").append("<div>");
         movieResult.empty();
@@ -65,34 +60,15 @@ function searchMovie(title, year, rating) {
 
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
-    console.log("here")
     var titleCheck = checkTitleSpaces(title);
     var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
-    console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
             return response.json();
         })
         .then(function (data) {
-            var movieYoutubeId = data.items[0].id.videoId;
-            createYoutubeSection(movieYoutubeId);
-        })
-};
-
-
-// Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
-const getYoutubeApi = (title, year) => {
-    console.log("here")
-    var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyCZOprYZ1pcrR5JMARF4XUc2PkR58GDPBs`;
-    console.log(youtubeUrl)
-    fetch(youtubeUrl)
-        .then(function (response) {
-            console.log(response)
-            return response.json();
-        })
-        .then(function (data) {
+            console.log(data)
             var movieYoutubeId = data.items[0].id.videoId;
             createYoutubeSection(movieYoutubeId);
         })
@@ -115,11 +91,7 @@ const createYoutubeSection = id => {
     var youtubeUrlId = "https://www.youtube.com/embed/" + id;
     movieLink.attr('src', youtubeUrlId);
     youtubePreview.removeClass("hidden");
-
     movieResult.attr('style','display: none');
-    console.log("youtube work")
-    
-
     return;
 };
 
@@ -202,7 +174,7 @@ const saveLocal = clickedTitle => {
         localStorage.setItem("keyCount", JSON.stringify(savedLocal));
     }
     createHistoryList(clickedTitle);
-}
+};
 
 // Function that creates the history list
 const createHistoryList = clickedTitle => {
@@ -210,7 +182,7 @@ const createHistoryList = clickedTitle => {
     var history = $(".history");
     history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`);
     historyListener(clickedTitle, counter);
-}
+};
 
 // Function that adds listeners to the titles in history section to open up YouTube video once clicked
 const historyListener = (clickedTitle, counter) => {
@@ -218,7 +190,7 @@ const historyListener = (clickedTitle, counter) => {
         event.preventDefault();
         getYoutubeApi(clickedTitle);
     })
-}
+};
 
 // Function that initializes on refreshing the page and parses the stored array from the local storage through JSON 
 const init = () => {
@@ -236,8 +208,8 @@ const init = () => {
             history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`);
             historyListener(savedTitles[i], count);
         }
-    }
-}
+    };
+};
 
 // Search button click event
 searchButton.on('click', event => {
@@ -247,12 +219,11 @@ searchButton.on('click', event => {
     searchMovie(searchInput);
 });
 
-
-closebutton.on('click', event => {
-    youtubePreview.addClass("hidden")
+// Function that closes the youtube player when click on cancel
+closeButton.on('click', event => {
+    youtubePreview.addClass("hidden");
     movieResult.attr('style','display: flex');
-    console.log("clicked")
 })
 
+// Calling the initialization function when page refreshes
 init();
-
