@@ -54,12 +54,14 @@ function searchMovie(title, year, rating) {
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyA2gptcVzPO8SqYHpZjG-85g0JM23iq4QI`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyCZOprYZ1pcrR5JMARF4XUc2PkR58GDPBs`;
     fetch(youtubeUrl)
         .then(function (response) {
+            console.log(response)
             return response.json();
         })
         .then(function (data) {
+            console.log(data)
             var movieYoutubeId = data.items[0].id.videoId;
             createYoutubeSection(movieYoutubeId);
         })
