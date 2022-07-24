@@ -219,7 +219,7 @@ searchButton.on('click', event => {
     searchMovie(searchInput);
 });
 
-// Function that closes the youtube player
+// Function that closes the youtube player when click on cancel
 closeButton.on('click', event => {
     youtubePreview.addClass("hidden");
     movieResult.attr('style','display: flex');
