@@ -157,7 +157,7 @@ const addListener = (movieTitle, year, counter) => {
         } else {
             getYoutubeApi(clickedTitle, newYear);
         };
-        saveLocal(clickedTitle)
+        saveLocal(clickedTitle);
     })
 };
 
@@ -174,23 +174,22 @@ const saveLocal = clickedTitle => {
         savedLocal.push(clickedTitle);
         localStorage.setItem("keyCount", JSON.stringify(savedLocal));
     }
-    createHistoryList(clickedTitle)
+    createHistoryList(clickedTitle);
 }
 
 // Function that creates the history list
 const createHistoryList = clickedTitle => {
     counter ++
     var history = $(".history");
-    history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`)
-    historyListener(clickedTitle, counter)
+    history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`);
+    historyListener(clickedTitle, counter);
 }
 
 // Function that adds listeners to the titles in history section to open up YouTube video once clicked
 const historyListener = (clickedTitle, counter) => {
     $(`.history-click-${counter}`).on('click', event => {
         event.preventDefault();
-        console.log("work")
-        getYoutubeApi(clickedTitle)
+        getYoutubeApi(clickedTitle);
     })
 }
 
@@ -201,14 +200,14 @@ const init = () => {
     if (savedTitles === null) {
         return;
     } else {
-        var count = 0
+        var count = 0;
         var titleMovie;
         for (var i = 0; i < savedTitles.length; i++) {
-            count++
-            titleMovie = savedTitles[i]
+            count++;
+            titleMovie = savedTitles[i];
             var history = $(".history");
-            history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`)
-            historyListener(savedTitles[i], count)
+            history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`);
+            historyListener(savedTitles[i], count);
         }
     }
 }
@@ -220,7 +219,5 @@ searchButton.on('click', event => {
     movieInfo.empty();
     searchMovie(searchInput);
 });
-
-
 
 init();
