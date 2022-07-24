@@ -113,7 +113,8 @@ section {
 .clickedTitle {
     list-style: none;
     color: #e4e4e4;
-    cursor: default;
+    cursor: pointer;
+
 }
 
 .youTube {
@@ -121,8 +122,8 @@ section {
     flex-wrap: wrap;
     background-color: #000000f5;
     width: 100%;
-    height: 450px;
-    border-radius: 20px;
+    max-width: 700px;
+    border-radius: 10px;
     align-content: space-around;
     justify-content: space-around;
     align-items: center;
@@ -133,14 +134,7 @@ section {
 }
 
 #closebutton {
-    position: absolute;
-    top: 164px;
-    left: 980px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    color: #000000;
-    border-radius: 50%;   
+    position: relative;  
 }
 
 .movie-title {
@@ -189,4 +183,4 @@ section {
         width: 100px;
         height: 150px;
     }
-}
+

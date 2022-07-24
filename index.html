@@ -22,63 +22,71 @@
         
         <div class="columns">
             <div class="column is-narrow" id="nav">
-                <form>
-                    <section id="search-sec">
-                        <h2 class="subtitle has-text-white is-5 mb-1">Search</h2>
-                        <input type="search" id="search" placeholder="Search.."><br>
-                    </section>
-                    <section id="genre-sec">
-                        <label for="genre" class="has-text-white">Choose a genre:</label><br>
-                        <select name="genre" id="genre">
-                            <option value="">Any</option>
-                            <option value="action">Action</option>
-                            <option value="adventure">Adventure</option>
-                            <option value="animation">Animation</option>
-                            <option value="biography">Biography</option>
-                            <option value="comedy">Comedy</option>
-                            <option value="crime">Crime</option>
-                            <option value="documentary">Documentary</option>
-                            <option value="drama">Drama</option>
-                            <option value="family">Family</option>
-                            <option value="fantasy">Fantasy</option>
-                            <option value="film-noir">Film-Noir</option>
-                            <option value="game-show">Game-Show</option>
-                            <option value="history">History</option>
-                            <option value="horror">Horror</option>
-                            <option value="music">Music</option>
-                            <option value="musical">Musical</option>
-                            <option value="mystery">Mystery</option>
-                            <option value="news">News</option>
-                            <option value="reality-tv">Reality-TV</option>
-                            <option value="romance">Romance</option>
-                            <option value="sci-fi">Sci-Fi</option>
-                            <option value="sport">Sport</option>
-                            <option value="talk-show">Talk-Show</option>
-                            <option value="thriller">Thriller</option>
-                            <option value="war">War</option>
-                            <option value="western">Western</option>
-                        </select>
-                    </section>
-                    <section id="year-sec">
-                        <label for="year-made" class="has-text-white">Year Made:</label><br>
-                        <div class="slidecontainer">
-                            <input type="range" min="1950" max="2022" value="1950" class="slider" id="myRangeYear">
-                            <p class="has-text-light pt-1">Year Made <span id="year"></span> to Current</p>
-                        </div>
-                    </section>
-                    <section id="rating-sec">
-                        <label for="rating" class="has-text-white">Rating:</label><br>
-                        <div class="slidecontainer">
-                            <input class="slider is-small" type="range" min="1" max="9" value="1" class="slider" id="myRangeRating">
-                            <p class="has-text-light pt-1">Rating <span id="rating"></span> to 10</p>
-                        </div>
-                    </section>
-                    <section id="button-sec is-justify-content-center">
-                        <button class="button is-small" id="searchButton">Search <span class="material-symbols-outlined">Search</span></button>
-                    </section>
-                    <section class="history"></section>
-                </form>
-            </div>
+
+                <input type="search" id="search" placeholder="Search.."><br>
+                
+                <label for="genre">Choose a genre:</label><br>
+                    <select name="genre" id="genre">
+                        <option value="">Anything</option>
+                        <option value="action">Action</option>
+                        <option value="adventure">Adventure</option>
+                        <option value="animation">Animation</option>
+                        <option value="biography">Biography</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="crime">Crime</option>
+                        <option value="documentary">Documentary</option>
+                        <option value="drama">Drama</option>
+                        <option value="family">Family</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="film-noir">Film-Noir</option>
+                        <option value="game-show">Game-Show</option>
+                        <option value="history">History</option>
+                        <option value="horror">Horror</option>
+                        <option value="music">Music</option>
+                        <option value="musical">Musical</option>
+                        <option value="mystery">Mystery</option>
+                        <option value="news">News</option>
+                        <option value="reality-tv">Reality-TV</option>
+                        <option value="romance">Romance</option>
+                        <option value="sci-fi">Sci-Fi</option>
+                        <option value="sport">Sport</option>
+                        <option value="talk-show">Talk-Show</option>
+                        <option value="thriller">Thriller</option>
+                        <option value="war">War</option>
+                        <option value="western">Western</option>               
+                    </select><br>
+
+
+                    <label for="rating">Year Made:</label><br>
+                    <div class="slidecontainer">
+                    <input type="range" min="1990" max="2022" value="1990" class="slider" id="myRangeYear">
+                    <p>Year Made <span id="year"></span> to Current</p>
+                    </div>
+                <label for="rating">Rating:</label><br>
+                    <div class="slidecontainer">
+                    <input type="range" min="1" max="9" value="1" class="slider" id="myRangeRating">
+                    <p>Rating <span id="rating"></span> to 10</p>
+                    </div>
+                    <button class="button is-small is-black" id="searchButton">Search</button>
+                <div>
+                    <h3 class="history" id="history">History</h3>
+
+            <!-- <div class="column is-9"> -->
+            <div class="column" id="page-content">
+                <!-- Append "Search results for..." from script -->
+                <div class="columns is-multiline is-centered" id="movies">
+                </div>
+                <div class="preview hidden">
+                    <button class="delete is-large" id="closebutton"></button>
+                    <iframe class="youTube" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                    
+                    
+
+                </div>
+        </div>
+        
+
 
             <!-- <div class="column is-9"> -->
             <div class="column" id="page-content">
