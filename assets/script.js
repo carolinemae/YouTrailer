@@ -1,6 +1,6 @@
 // Global Variables
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn"; //  k_2fn865ld k_yu9dk0350
+var apiKey = "k_2fn865ld"; //   k_yu9dk0350 k_q5dx85dn
 var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info');
@@ -58,7 +58,7 @@ function searchMovie(title, year, rating) {
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBtnf8uq4ltkZFwFH-xAPih-a0FOdKZ2pk`;
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
