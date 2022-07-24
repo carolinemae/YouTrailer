@@ -1,10 +1,8 @@
 :root {
     --dark-color: #000000;
-    --med-color: #e4e4e4;
     --light-color: rgb(231, 231, 231);
     --white-color: white;
-    --universal-padding: 10px;
-}
+ }
 
 * {
     font-family: Arial, Helvetica, sans-serif;
@@ -28,21 +26,25 @@ h2 {
 
 #nav {
     background-color: var(--dark-color);
-    height: 100vh;
+    width: 175px;
 }
 
 #search, #genre, #searchButton {
     width: 150px;
 }
 
-#main-cont {
-    border-top-left-radius: 50;
-    border-color: black;
+.history {
+    display: flex;
+    flex-direction: column;
 }
 
 #movies div {
     padding: 20px;
     flex-wrap: wrap;
+}
+
+li {
+    font-size: smaller;
 }
 
 h3 {
@@ -108,21 +110,20 @@ section {
     cursor: pointer;
 }
 
-#clickedTitle {
+.clickedTitle {
     list-style: none;
     color: #e4e4e4;
+    cursor: pointer;
+
 }
 
 .youTube {
     display: flex;
     flex-wrap: wrap;
-    position: fixed;
-    margin-top: 58px;
-    margin-left: 300px;
     background-color: #000000f5;
-    width: 700px;
-    height: 450px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
     align-content: space-around;
     justify-content: space-around;
     align-items: center;
@@ -133,20 +134,53 @@ section {
 }
 
 #closebutton {
-    position: absolute;
-    top: 164px;
-    left: 980px;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    color: #000000;
-    border-radius: 50%;   
+    position: relative;  
 }
 
 .movie-title {
     cursor: pointer;
 }
 
-#clickedTitle {
-    cursor: default;
-}
+@media screen and (max-width: 769px ) {
+    * {
+        font-size: 90%;
+    }
+    section {
+        padding-top: 2px;
+    }
+    #page-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #genre {
+        line-height: 5px;
+    }
+    #nav {
+        width: 100%;
+        height: auto;
+    }
+    #search, #genre, #searchButton {
+        width: 100%;
+    }  
+    .history {
+        display: none;
+    }
+    .columns.is-multiline {
+        display: inline-flex;
+    }
+    #movies div {
+        padding: 2px;
+        flex-wrap: wrap;
+    }
+    .movie-card {
+        width: 120px;
+        /* display: table-row; */
+    }
+    .movie-img {
+        object-fit: cover;
+        width: 100px;
+        height: 150px;
+    }
+

@@ -1,8 +1,14 @@
 // Global Variables
 var searchButton = $("#searchButton");
+var apiKey = "k_q5dx85dn"; //  k_2fn865ld k_yu9dk0350
 var youtubePreview = $(".preview");
 var movieResult;
+
 var movieInfo = $('#movie-info');
+var counter = 0;
+var savedLocal = [];
+var closebutton = $("#closebutton");
+
 
 // Slider creation on UI
 var sliderRating = document.getElementById("myRangeRating");
@@ -17,7 +23,6 @@ var ratingLow = outputRating.innerHTML = this.value;
 var sliderYear = document.getElementById("myRangeYear");
 var outputYear = document.getElementById("year");
 outputYear.innerHTML = sliderYear.value; // Display the default slider value
-
 
 // Update the current slider value (each time you drag the slider handle)
 sliderYear.oninput = function() {
@@ -38,12 +43,14 @@ function searchMovie(title, year, rating) {
     var genres = $('#genre :selected').text();
 
     //APi Link goes here
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
         url: urlMovie,
         method: "GET"
     }).then(function (response) {
+        console.log(response)
         var response = response.results;
         movieResult = $("#movies").append("<div>");
         movieResult.empty();
@@ -51,17 +58,19 @@ function searchMovie(title, year, rating) {
     })
 };
 
+
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
+    console.log("here")
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyCZOprYZ1pcrR5JMARF4XUc2PkR58GDPBs`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
+    console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
             return response.json();
         })
         .then(function (data) {
-            console.log(data)
             var movieYoutubeId = data.items[0].id.videoId;
             createYoutubeSection(movieYoutubeId);
         })
@@ -77,20 +86,23 @@ const checkTitleSpaces = title => {
     };
 };
 
+
 // Function that gets the video URL id
 const createYoutubeSection = id => {
     var movieLink = $('.youTube');
     var youtubeUrlId = "https://www.youtube.com/embed/" + id;
     movieLink.attr('src', youtubeUrlId);
     youtubePreview.removeClass("hidden");
-    var closebutton = $("#closebutton");
-    closebutton.on('click', event => {
-        $(".preview").remove();
-    })
+
+    movieResult.attr('style','display: none');
+    console.log("youtube work")
+    
+
     return;
 };
 
 // Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
+
 const createCard = response => {
     var movieTitle;
     var movieYear;
@@ -100,6 +112,7 @@ const createCard = response => {
     var counter = 0;
     
     for (var i = 0; i < 31; i ++){
+
         var movieCard = $('<div>');
         var movieTitleInput = $('<h3>');
         var movieYearInput = $('<p>');
@@ -107,6 +120,7 @@ const createCard = response => {
         var movieImgInput = $('<img>');
         counter++;
 
+        movieCard.addClass('movie-card');
         movieResult.append(movieCard);
 
         movieTitle = response[i].title;
@@ -117,10 +131,12 @@ const createCard = response => {
 
         movieYear = response[i].description;
         movieYearInput.text(movieYear);
+        movieYearInput.addClass('movie-year');
         movieCard.append(movieYearInput);
 
         movieRating = response[i].imDbRating;
         movieRatingInput.text(movieRating);
+        movieRatingInput.addClass('movie-rating');
         movieCard.append(movieRatingInput);
 
         movieImage = response[i].image;
@@ -135,7 +151,7 @@ const createCard = response => {
 // Event listener to take in movie title and calls the youtube API function
 const addListener = (movieTitle, year, counter) => {
     $(`.movie-${counter}`).on('click', event => {
-        event.preventDefault;
+        event.preventDefault();
         clickedTitle = movieTitle;
         var newYear = year.replaceAll('(', '').replaceAll(')', '');
 
@@ -146,12 +162,60 @@ const addListener = (movieTitle, year, counter) => {
         } else {
             getYoutubeApi(clickedTitle, newYear);
         };
-
-        var local = localStorage.setItem("keyCount", clickedTitle);
-        var history = $(".history");
-        history.append("<li id=clickedTitle>" +  clickedTitle + "</li>");    
+        saveLocal(clickedTitle);
     })
 };
+
+// Function that saves the titles to local storage with JSON
+const saveLocal = clickedTitle => {
+    if (savedLocal === null) {
+        savedLocal = [clickedTitle];
+        localStorage.setItem("keyCount", JSON.stringify(savedLocal));
+        createHistoryList(clickedTitle);
+        return;
+    } else if (savedLocal.includes(clickedTitle)) {
+        return;
+    } else {
+        savedLocal.push(clickedTitle);
+        localStorage.setItem("keyCount", JSON.stringify(savedLocal));
+    }
+    createHistoryList(clickedTitle);
+}
+
+// Function that creates the history list
+const createHistoryList = clickedTitle => {
+    counter ++
+    var history = $(".history");
+    history.append(`<li class="clickedTitle history-click-${counter}">${clickedTitle}</li>`);
+    historyListener(clickedTitle, counter);
+}
+
+// Function that adds listeners to the titles in history section to open up YouTube video once clicked
+const historyListener = (clickedTitle, counter) => {
+    $(`.history-click-${counter}`).on('click', event => {
+        event.preventDefault();
+        getYoutubeApi(clickedTitle);
+    })
+}
+
+// Function that initializes on refreshing the page and parses the stored array from the local storage through JSON 
+const init = () => {
+    savedTitles = JSON.parse(localStorage.getItem("keyCount"));
+    savedLocal = savedTitles;
+    if (savedTitles === null) {
+        return;
+    } else {
+        var count = 0;
+        var titleMovie;
+        for (var i = 0; i < savedTitles.length; i++) {
+            count++;
+            titleMovie = savedTitles[i];
+            var history = $(".history");
+            history.append(`<li class="clickedTitle history-click-${count}">${titleMovie}</li>`);
+            historyListener(savedTitles[i], count);
+        }
+    }
+}
 
 // Search button click event
 searchButton.on('click', event => {
@@ -160,3 +224,13 @@ searchButton.on('click', event => {
     movieInfo.empty();
     searchMovie(searchInput);
 });
+
+
+closebutton.on('click', event => {
+    youtubePreview.addClass("hidden")
+    movieResult.attr('style','display: flex');
+    console.log("clicked")
+})
+
+init();
+
