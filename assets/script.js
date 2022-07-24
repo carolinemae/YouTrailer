@@ -1,6 +1,13 @@
 var searchButton = $("#searchButton");
 var apiKey = "k_q5dx85dn";
 var movieResult;
+<<<<<<< Updated upstream
+=======
+var movieInfo = $('#movie-info');
+var counter = 0;
+var savedLocal = [];
+var closebutton = $("#closebutton");
+>>>>>>> Stashed changes
 
 var sliderRating = document.getElementById("myRangeRating");
 var outputRating = document.getElementById("rating");
@@ -36,7 +43,40 @@ function searchMovie(title, year, rating) {
     var year = $("#year").text()
     var genres = $('#genre :selected').text()
     //APi Link goes here
+<<<<<<< Updated upstream
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/k_q5dx85dn?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+=======
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    
+    $.ajax({
+        url: urlMovie,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response)
+        var response = response.results;
+        movieResult = $("#movies").append("<div>");
+        movieResult.empty();
+        createCard(response);
+    })
+};
+
+// Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
+const getYoutubeApi = (title, year) => {
+    console.log("here")
+    var titleCheck = checkTitleSpaces(title);
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
+    console.log(youtubeUrl)
+    fetch(youtubeUrl)
+        .then(function (response) {
+            console.log(response)
+            return response.json();
+        })
+        .then(function (data) {
+            var movieYoutubeId = data.items[0].id.videoId;
+            createYoutubeSection(movieYoutubeId);
+        })
+};
+>>>>>>> Stashed changes
 
     if (title == "") {
         alert('Please insert a movie title.')
@@ -54,6 +94,22 @@ function searchMovie(title, year, rating) {
     };
 };
 
+<<<<<<< Updated upstream
+=======
+// Function that gets the video URL id
+const createYoutubeSection = id => {
+    var movieLink = $('.youTube');
+    var youtubeUrlId = "https://www.youtube.com/embed/" + id;
+    movieLink.attr('src', youtubeUrlId);
+    youtubePreview.removeClass("hidden");
+    movieResult.attr('style','display: none');
+    console.log("youtube work")
+    
+    return;
+};
+
+// Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
+>>>>>>> Stashed changes
 const createCard = response => {
     console.log(response)
     var movieTitle;
@@ -102,4 +158,14 @@ searchButton.click(() => {
 
 });
 
+<<<<<<< Updated upstream
 
+=======
+closebutton.on('click', event => {
+    youtubePreview.addClass("hidden")
+    movieResult.attr('style','display: flex');
+    console.log("clicked")
+})
+
+init();
+>>>>>>> Stashed changes
