@@ -190,3 +190,16 @@ section {
         height: 150px;
     }
 }
+  /* Footer Styling */
+
+  .card-footer-item {
+    font-size: x-large;
+  }
+  
+    /* Twitter styling doesn't work. Icon source CDN linked in html */
+  .fa fa-twitter{
+        color: lightskyblue;
+       
+      }
+  
+  
