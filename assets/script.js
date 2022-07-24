@@ -1,6 +1,6 @@
 // Global Variables
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn"; //k_yu9dk0350 k_2fn865ld
+var apiKey = "k_q5dx85dn"; //  k_2fn865ld k_yu9dk0350
 var youtubePreview = $(".preview");
 var movieResult;
 var movieInfo = $('#movie-info');
@@ -46,6 +46,7 @@ function searchMovie(title, year, rating) {
         url: urlMovie,
         method: "GET"
     }).then(function (response) {
+        console.log(response)
         var response = response.results;
         movieResult = $("#movies").append("<div>");
         movieResult.empty();
@@ -57,7 +58,7 @@ function searchMovie(title, year, rating) {
 const getYoutubeApi = (title, year) => {
     console.log("here")
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyA2gptcVzPO8SqYHpZjG-85g0JM23iq4QI`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyAnCqDlxvqrhxsMWzOtC7kJ4c3bqx7d3hg`;
     console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
@@ -219,5 +220,7 @@ searchButton.on('click', event => {
     movieInfo.empty();
     searchMovie(searchInput);
 });
+
+
 
 init();
