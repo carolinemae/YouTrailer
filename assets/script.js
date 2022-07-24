@@ -58,7 +58,7 @@ function searchMovie(title, year, rating) {
 const getYoutubeApi = (title, year) => {
     console.log("here")
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyAnCqDlxvqrhxsMWzOtC7kJ4c3bqx7d3hg`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyCZOprYZ1pcrR5JMARF4XUc2PkR58GDPBs`;
     console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
