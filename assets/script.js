@@ -6,6 +6,8 @@ var movieResult;
 var movieInfo = $('#movie-info');
 var counter = 0;
 var savedLocal = [];
+var closeButton = $("#closebutton");
+
 
 // Slider creation on UI
 var sliderRating = document.getElementById("myRangeRating");
@@ -46,7 +48,6 @@ function searchMovie(title, year, rating) {
         url: urlMovie,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
         var response = response.results;
         movieResult = $("#movies").append("<div>");
         movieResult.empty();
@@ -56,10 +57,8 @@ function searchMovie(title, year, rating) {
 
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
-    console.log("here")
     var titleCheck = checkTitleSpaces(title);
     var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
-    console.log(youtubeUrl)
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
@@ -88,14 +87,7 @@ const createYoutubeSection = id => {
     var youtubeUrlId = "https://www.youtube.com/embed/" + id;
     movieLink.attr('src', youtubeUrlId);
     youtubePreview.removeClass("hidden");
-    var closebutton = $("#closebutton");
     movieResult.attr('style','display: none');
-    console.log("youtube work")
-    closebutton.on('click', event => {
-        event.preventDefault();
-        $(".preview").remove();
-        movieResult.attr('style','display: visible');
-    })
     return;
 };
 
@@ -221,6 +213,11 @@ searchButton.on('click', event => {
     movieInfo.empty();
     searchMovie(searchInput);
 });
+
+closeButton.on('click', event => {
+    youtubePreview.addClass("hidden");
+    movieResult.attr('style','display: flex');
+})
 
 // Calling the initialization function when page refreshes
 init();
