@@ -125,3 +125,6 @@ So users can find movies according to desired search and view the trailer.
 ⚡️ Fun fact...
 
 Thank you for the Developers for making us Developers!
+
+## Deployed URL
+https://carolinemae.github.io/YouTrailer/ 
