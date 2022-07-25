@@ -1,85 +1,98 @@
+/* Variables */
 :root {
     --dark-color: #000000;
     --light-color: rgb(231, 231, 231);
     --white-color: white;
 }
 
+/* Font for entire webpage */
 * {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Header background image */
 header {
     background-image: url(https://media.istockphoto.com/photos/film-reels-on-black-background-movie-video-and-cinema-prodaction-and-picture-id1336937059?b=1&k=20&m=1336937059&s=170667a&w=0&h=Lg5T5VAhrTRhHmFrWp8cTWRjZrSm-nPkeTpVU2dsZoE=);
     background-size: 100%;
     background-position: 20%;
 }
 
+/* Header text styling */
 header .title{
-    color: var(--light-color);
+    color: var(--white-color);
     opacity: 90%;
     font-family: 'Playfair Display SC', serif;
 }
 
+/* Removing bottom margin from Bulma styling */
 h2 {
     margin-bottom: 0px;
 }
 
+/* Navigation bar styling */
 #nav {
     background-color: var(--dark-color);
     width: 175px;
 }
 
+/* User input equal in width */
 #search, #genre, #searchButton {
     width: 150px;
 }
 
+/* History section */
 .history {
     display: flex;
     flex-direction: column;
+    font-size: smaller;
 }
 
+/* Movies div layout */
 #movies div {
     padding: 20px;
     flex-wrap: wrap;
 }
 
-li {
-    font-size: smaller;
-}
-
-h3 {
+/* h3 {
     font-weight: bold;
     max-width: 200px;
-}
+} */
 
+/* Text styling */
 p {
     font-size: 70%;
     max-width: 200px;
 }
 
+/* Add spacing between sections */
 section {
     padding-top: 20px;
 }
 
+/* Add spacing in front of search symbol */
 .material-symbols-outlined {
     padding-left: 20px;
 }
 
+/* Make movie images same dimensions */
 .movie-img {
     object-fit: cover;
     width: 200px;
     height: 250px;
 }
 
+/* Movie title styling */
 .movie-title {
     text-decoration: underline;
 }
 
+/* Override Bulma column padding and margins */
 .columns {
     margin: 0;
     padding: 0;
 }
 
+/* Slider styling */
 .slider {
     -webkit-appearance: none;
     width: 100%;
@@ -92,6 +105,7 @@ section {
     transition: opacity .2s;
 }
 
+/* Slider thumb styling */
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -102,6 +116,7 @@ section {
     cursor: pointer;
 }
 
+/* Slider thumb styling */
 .slider::-moz-range-thumb {
     width: 25px;
     height: 25px;
@@ -110,16 +125,18 @@ section {
     cursor: pointer;
 }
 
+/* History title list styling */
 .clickedTitle {
     list-style: none;
-    color: #e4e4e4;
+    color: var(--light-color);
     cursor: pointer;
 }
 
+/* YouTube preview styling */
 .youTube {
     display: flex;
     flex-wrap: wrap;
-    background-color: #000000f5;
+    background-color: var(--dark-color);
     max-width: 650px;
     width: 100%;
     border-radius: 10px;
@@ -128,30 +145,25 @@ section {
     align-items: center;
 }
 
+/* Applies to elements with 'hidden' class added */
 .hidden {
     display: none;
 }
 
+/* Close button for YouTube preview positioning */
 #closebutton {
     position: relative; 
 }
 
+/* Movie title (link) cursor styling */
 .movie-title {
     cursor: pointer;
 }
 
-/* Footer Styling */
+/* Footer styling */
 .footer {
     padding: 0;
-}
-
-.card-footer-item {
-    font-size: x-large;
-}
-
-/* Twitter styling doesn't work. Icon source CDN linked in html */
-.fa fa-twitter{
-    color: lightskyblue;
+    background-color: var(--light-color);
 }
 
 /*Media Query*/
@@ -196,5 +208,8 @@ section {
         object-fit: cover;
         width: 100px;
         height: 150px;
+    }
+    .preview {
+        width: 100%;
     }
 }
