@@ -62,14 +62,14 @@
                     <section id="year-sec">
                         <label for="year-made" class="has-text-white">Year Made:</label><br>
                         <div class="slidecontainer">
-                            <input type="range" min="1950" max="2022" value="1950" class="slider" id="myRangeYear">
+                            <input type="range" min="1950" max="2022" value="2010" class="slider" id="myRangeYear">
                             <p class="has-text-light pt-1">Year Made <span id="year"></span> to Current</p>
                         </div>
                     </section>
                     <section id="rating-sec">
                         <label for="rating" class="has-text-white">Rating:</label><br>
                         <div class="slidecontainer">
-                            <input class="slider is-small" type="range" min="1" max="9" value="1" class="slider" id="myRangeRating">
+                            <input class="slider is-small" type="range" min="1" max="9" value="6" class="slider" id="myRangeRating">
                             <p class="has-text-light pt-1">Rating <span id="rating"></span> to 10</p>
                         </div>
                     </section>
@@ -83,12 +83,19 @@
             <!-- <div class="column is-9"> -->
             <div class="column" id="page-content">
                 <!-- Append "Search results for..." from script -->
-                <div class="columns is-multiline is-centered" id="movies">
+                <div class="columns is-multiline is-centered" id="movies"><strong>Welcome to YouTrailer.<br>
+                    A Web application developed by a group of Adelaide University Coding Bootcamp students.<br>
+                    This application is designed to help you with your film cravings.<br>
+                    Just type what you are looking for whether it will be a year, genre, title or anything in between in the search section<br>
+                    and a world of films along with the trailer will be before you.<br>
+                    Easily accessible and saved with our handy history tab so you never forget.</strong>
                 </div>
-                <div class="preview hidden">
+                <div class="preview">
+                    <button class="delete is-large" id="closebutton"></button>
                     <iframe class="youTube" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
-                    <button class="button is-small" id="closebutton">X</button>
+                    <section id="previewInfo">Bla</section>
+                    
                 </div>
             </div>
 
