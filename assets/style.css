@@ -194,3 +194,22 @@ section {
         height: 150px;
     }
 }
+
+  /* Footer Styling */
+  .card-footer{
+    background-color: hsl(0, 0%, 96%);
+    border: hsl(0, 0%, 71%);
+    
+  }
+  .card-footer-item {
+    font-size: x-large;
+  }
+  
+  
+    /* Twitter styling doesn't work. Icon source CDN linked in html */
+  .fa fa-twitter{
+        color: lightskyblue;
+       
+      }
+  
+  

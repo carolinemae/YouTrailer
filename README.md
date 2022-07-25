@@ -111,19 +111,15 @@ so users can find movies according to desired search and view the trailer.
 
     @ Search History - 
 
-    Search history is designed to save browser time. Once the user input the title of the movie it stores in the search bar. So user can easily search the same name of the movie without re-entering into the search bar.  
+    Search history is designed to save browser time. Once the user input the title of the movie it stores  and appear in the below the search button in search bar section. So user can easily search the same name of the movie without re-entering into the search bar.  
 
     @ Choosing the Genre -
 
     User also can search the trailer by choosing a Genre. This is, if the user wants to search the same title and also can be searched by the catagory. This option has been designed due to some of movies related to multiple catogories.
 
-    Ex:
-
     @ Year of Made -
 
     If there's a series of movies under one title which are released in different years, the user can search the particular movie title by year of released and get the filtered results.
-
-    Ex:
 
     @ Rating -
 
