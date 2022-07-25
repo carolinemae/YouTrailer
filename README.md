@@ -54,6 +54,7 @@ So users can find movies according to desired search and view the trailer.
 
 // YouTrailer was developed to give maximum user friendliness to the browser. The site is designed with multiple filters for the best user accessibility. Features and functionalities as follows;
 
+![sketch](./images/Screenshot-main.jpg)
 
 # Features of,
 
@@ -81,6 +82,7 @@ So users can find movies according to desired search and view the trailer.
 
     Browser can filter the searched results by choosing the range of the rating 1 to 10.
 
+![sketch](./images/Screenshot-titles.jpg)
 
 # Functionalities of,
 
@@ -96,6 +98,7 @@ So users can find movies according to desired search and view the trailer.
    
     The search section also triggers the API call by inputting the search name into the API request url. When the user clicked a title it will be stored within a variable and then stored within the local storage using stringify. 
 
+![sketch](./images/Screenshot-youtube.jpg)
 
 # Obstacles 🤔
 
