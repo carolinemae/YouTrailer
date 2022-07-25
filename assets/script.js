@@ -1,6 +1,7 @@
 // Global Variables
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn"; //  k_2fn865ld k_yu9dk0350
+var imdbApiKey = "k_2fn865ld"; //k_q5dx85dn k_yu9dk0350
+var youtubeApiKey = 'AIzaSyBtnf8uq4ltkZFwFH-xAPih-a0FOdKZ2pk'; //AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4
 var youtubePreview = $(".preview");
 var movieResult;
 
@@ -44,7 +45,7 @@ function searchMovie(title, year, rating) {
 
     //APi Link goes here
 
-    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
+    var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + imdbApiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
         url: urlMovie,
@@ -61,7 +62,7 @@ function searchMovie(title, year, rating) {
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=${youtubeApiKey}`;
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
