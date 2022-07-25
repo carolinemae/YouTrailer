@@ -2,24 +2,23 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  <link rel="stylesheet" href="./assets/style.css" />
-  <title>YouTrailer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>YouTrailer</title>
 </head>
 
 <body>
-
-        <header class="hero py-5 px-1">
-            <div class="hero-body p-2">
-                <h1 class="title is-1">YouTrailer</h1>
-            </div>
-        </header>
-        
+    <header class="hero py-5 px-1">
+        <div class="hero-body p-2">
+            <h1 class="title is-1">YouTrailer</h1>
+        </div>
+    </header>
+    <main>
         <div class="columns">
             <div class="column is-narrow" id="nav">
                 <form>
@@ -85,53 +84,42 @@
                 <!-- Append "Search results for..." from script -->
                 <div class="columns is-multiline is-centered" id="movies"><strong>Welcome to YouTrailer.<br>
                     A Web application developed by a group of Adelaide University Coding Bootcamp students.<br>
-                    This application is designed to help you with your film cravings.<br>
+                    This application is designed to help you with your entertainment cravings.<br>
                     Just type what you are looking for whether it will be a year, genre, title or anything in between in the search section<br>
-                    and a world of films along with the trailer will be before you.<br>
+                    and a world of different types of entertainment along with the trailer will be before you.<br>
                     Easily accessible and saved with our handy history tab so you never forget.</strong>
                 </div>
-                <div class="preview">
+                <div class="preview hidden">
                     <button class="delete is-large" id="closebutton"></button>
                     <iframe class="youTube" width="560" height="315" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     </iframe>
-                    <section id="previewInfo">Bla</section>
-                    
+                    <section id="previewInfo"></section>
                 </div>
             </div>
-
-            <!-- <div class="column"> -->
-
-                <!-- <div id="movie-info"></div> -->
-
-            <!-- </div> -->
         </div>
-    
+    </main>
+    <!-- Footer section-->
+    <footer class="footer">
+        <div class="content has-text-centered">
+        
+            <div class="card-footer-item">
+                <strong>YouTrailer</strong>
+                <p class="column">Designed by Group-02</p> 
+            </div>
+        
+            <div class="card-footer-item">
+                <div class="column">
+                    <h5 class="subtitle is-5">Follow us on</h5>
+                    <div class="tabs is-centered">
+                        <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" style="font-size:36px;color: lightskyblue"></i></a>
+                        <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size: 36px; color: #4267B2"></i></a> 
+                        <a href="https://www.instagram.com/?hl=en/"><i class="fa fa-instagram" style="font-size:36px; color: lightcoral"></i></a> 
+                    </div>
+                </div>
+            </div>
+        </div>   
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/script.js"></script>
-    
-    <!-- Footer section-->
-  
-        <footer class="footer">
-            <div class="content has-text-centered">
-        
-                <div class="card-footer-item">
-                    <strong>YouTrailer</strong>
-                    <p class="column">Designed by Group-02</p> 
-                </div>
-        
-                <div class="card-footer-item">
-                    <div class="column">
-                        <h5 class="subtitle is-5">Follow us on</h5>
-                        <div class="tabs is-centered">
-                            <a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" style="font-size:36px;color: lightskyblue"></i></a>
-                            <a href="https://www.facebook.com/"><i class="fa fa-facebook" style="font-size: 36px; color: #4267B2"></i></a> 
-                            <a href="https://www.instagram.com/?hl=en/"><i class="fa fa-instagram" style="font-size:36px; color: lightcoral"></i></a> 
-                        </div>
-                </div>
-               
-            </div>   
-        </footer>
-
- 
- 
 </body>
+</html>
