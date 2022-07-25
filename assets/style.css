@@ -2,7 +2,7 @@
     --dark-color: #000000;
     --light-color: rgb(231, 231, 231);
     --white-color: white;
- }
+}
 
 * {
     font-family: Arial, Helvetica, sans-serif;
@@ -140,6 +140,17 @@ section {
     cursor: pointer;
 }
 
+/* Footer Styling */
+.card-footer-item {
+    font-size: x-large;
+}
+
+/* Twitter styling doesn't work. Icon source CDN linked in html */
+.fa fa-twitter{
+    color: lightskyblue;
+}
+
+/*Media Query*/
 @media screen and (max-width: 769px ) {
     * {
         font-size: 90%;
@@ -183,16 +194,3 @@ section {
         height: 150px;
     }
 }
-  /* Footer Styling */
-
-  .card-footer-item {
-    font-size: x-large;
-  }
-  
-    /* Twitter styling doesn't work. Icon source CDN linked in html */
-  .fa fa-twitter{
-        color: lightskyblue;
-       
-      }
-  
-  
