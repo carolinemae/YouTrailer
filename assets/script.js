@@ -1,7 +1,8 @@
 // Global Variables
 var searchButton = $("#searchButton");
-var apiKey = "k_q5dx85dn"; //  k_2fn865ld k_yu9dk0350
+var apiKey = "k_2fn865ld"; //  k_2fn865ld k_yu9dk0350 k_q5dx85dn
 var youtubePreview = $(".preview");
+var previewInfo = $("#previewInfo");
 var movieResult;
 
 var movieInfo = $('#movie-info');
@@ -61,7 +62,7 @@ function searchMovie(title, year, rating) {
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
     var titleCheck = checkTitleSpaces(title);
-    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBZ_TquxsVxZmS55xJARAJICtBh_vggBg4`;
+    var youtubeUrl = `https://www.googleapis.com/youtube/v3/search?q=${titleCheck}%20${year}%20official%20trailer&key=AIzaSyBtnf8uq4ltkZFwFH-xAPih-a0FOdKZ2pk`;
     fetch(youtubeUrl)
         .then(function (response) {
             console.log(response)
@@ -85,15 +86,7 @@ const checkTitleSpaces = title => {
 };
 
 
-// Function that gets the video URL id
-const createYoutubeSection = id => {
-    var movieLink = $('.youTube');
-    var youtubeUrlId = "https://www.youtube.com/embed/" + id;
-    movieLink.attr('src', youtubeUrlId);
-    youtubePreview.removeClass("hidden");
-    movieResult.attr('style','display: none');
-    return;
-};
+
 
 // Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
 
@@ -140,6 +133,15 @@ const createCard = response => {
 
         addListener(movieTitle, movieYear, counter);
     };
+};
+
+// Function that gets the video URL id
+const createYoutubeSection = id => {
+    var movieLink = $('.youTube');
+    var youtubeUrlId = "https://www.youtube.com/embed/" + id;
+    movieLink.attr('src', youtubeUrlId);
+    youtubePreview.removeClass("hidden");
+    movieResult.attr('style','display: none');
 };
 
 // Event listener to take in movie title and calls the youtube API function
