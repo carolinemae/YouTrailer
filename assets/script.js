@@ -8,6 +8,7 @@ var movieInfo = $('#movie-info');
 var counter = 0;
 var savedLocal = [];
 var closeButton = $("#closebutton");
+var homepageDesc = $("#homepage-desc");
 
 // Slider creation on UI
 var sliderRating = document.getElementById("myRangeRating");
@@ -67,6 +68,7 @@ const getYoutubeApi = (title, year) => {
             var movieYoutubeId = data.items[0].id.videoId;
             createYoutubeSection(movieYoutubeId);
         })
+        homepageDesc.addClass('hidden');
 };
 
 // Function that checks the title if it has spaces and returns correct youtube API formatting
@@ -207,6 +209,8 @@ searchButton.on('click', event => {
     var searchInput = $("#search").val();
     movieInfo.empty();
     searchMovie(searchInput);
+    youtubePreview.addClass("hidden");
+    movieResult.attr('style','display: flex');
 });
 
 // Function that closes the youtube player when click on cancel

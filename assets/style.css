@@ -141,6 +141,10 @@ section {
 }
 
 /* Footer Styling */
+.footer {
+    padding: 0;
+}
+
 .card-footer-item {
     font-size: x-large;
 }
