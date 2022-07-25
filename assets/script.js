@@ -3,6 +3,7 @@ var searchButton = $("#searchButton");
 var apiKey = "k_2fn865ld"; //   k_yu9dk0350 k_q5dx85dn
 var youtubePreview = $(".preview");
 var movieResult;
+
 var movieInfo = $('#movie-info');
 var counter = 0;
 var savedLocal = [];
@@ -42,6 +43,7 @@ function searchMovie(title, year, rating) {
     var genres = $('#genre :selected').text();
 
     //APi Link goes here
+
     var urlMovie = "https://imdb-api.com/API/AdvancedSearch/" + apiKey + "?title=" + title + "&user_rating=" + rating + ",10&release_date=" + year + "-01-01,2022-01-01&genres=" + genres;
     
     $.ajax({
@@ -54,6 +56,7 @@ function searchMovie(title, year, rating) {
         createCard(response);
     })
 };
+
 
 // Function that takes in the title chosen and fetches the YouTube URL and then calls function with the data to create the link
 const getYoutubeApi = (title, year) => {
@@ -81,6 +84,7 @@ const checkTitleSpaces = title => {
     };
 };
 
+
 // Function that gets the video URL id
 const createYoutubeSection = id => {
     var movieLink = $('.youTube');
@@ -92,6 +96,7 @@ const createYoutubeSection = id => {
 };
 
 // Function intake the API response and then creates elements of the Movie Cards containing- title, year, rating and poster image
+
 const createCard = response => {
     var movieTitle;
     var movieYear;
