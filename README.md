@@ -1,41 +1,20 @@
-
+# YouTrailer
 ## User Story
 
-AS A Web developer 🚀, 
+AS A person who enjoys discovering and watching entertainment, 
 
-I WANT TO, WHEN targeted browser visits view movie records
+I WANT TO be able to search for entertainment and view trailers
 
-THEN the browser can search and access the movie's record by name or title
-
-
-## Acceptance Croiteria
-
-GIVEN a webpage meets records of movies
-
-WHEN I enter movie's name or title
-
-THEN I find all the movies similar title
-
-WHEN I clicked search
-
-THEN I am presented movie(s) and all the movies similar title
-
-WHEN I clicked each movie
-
-THEN I presented the trailer(s) of the resulted movie(s)
-
-WHEN I searched a title 
-
-THEN the searched title listed in search history
+SO THAT I can decide what I would like to watch or play next.
 
 
 # About YouTrailer
 
-YouTrailer it's a Library of Movie Trailers site which shows Trailers of movies from 1990 until now. 
+YouTrailer is a library of trailers for different types of entertainment, whether it is movies, tv shows, video games or other sources of video entertainment. 
 
-The site is to users to browse movies by catagory, year of released and the rating, 
+The site is used to browse movies by category, year of release and rating, or by title that you are searching for (can even search without a title).
 
-so users can find movies according to desired search and view the trailer.
+So users can find movies according to desired search and view the trailer.
 
 
 ## How YouTrailer built 🛠 
@@ -44,52 +23,25 @@ so users can find movies according to desired search and view the trailer.
 
   ![sketch](./images/PXL_20220714_090411275.jpg) 
 
-
-  YouTrailer project started with  🚀 ,
-    
-    User Story
-    -----------
-
-    AS A drafter,
-
-    I WANT to be able to keep track of important tasks
-
-    SO THAT I am able to meet deadlines
-
-
-    Acceptance Criteria
-    --------------------
-
-    GIVEN I am keeping track of important tasks
-
-    WHEN I open the application
-
-    THEN I am displayed with the current date at the top of the page
-
-    WHEN I scroll down
-
-    THEN I am shown tasks that require attention or are due today
-
-    WHEN I select a task
-
-    THEN I am presented with the option to reschedule to another day/time
-
-
 # Tools used
    
     🔗 HTML
     
     🔗 CSS 
 
-    🔗 SCSS
+    🔗 Bulma
     
     🔗 Javascript
+
+    🔗 JQuery
 
     // Libraries used,
 
         - Jquery (https://jquery.com/)
 
-        - IMDb (https://imdb-api.com/api)
+        - IMDb API (https://imdb-api.com/api)
+
+        - YouTube API (https://cloud.google.com/)
 
         - FontAwesome (https://fontawesome.com/start)
 
@@ -100,28 +52,28 @@ so users can find movies according to desired search and view the trailer.
         - Google (https://www.google.com/)
 
 
-// YouTrailer has developed to give maximum user friendlines to the browser. The site is designed with multiple filters for the best user accessibility. Features and functionalities as follows;
+// YouTrailer was developed to give maximum user friendliness to the browser. The site is designed with multiple filters for the best user accessibility. Features and functionalities as follows;
 
 
 # Features of,
 
     @ Search section -  
 
-    This is the section where user can enter the title of the desired movie and click the search button and the main page will show all the relevant movies similar to the title entered.  
+    This is the section where user can enter the title of the desired entertainment and click the search button and the main page will show all the relevant entertainment selections similar to the title entered.  
 
     @ Search History - 
 
-    Search history is designed to save browser time. Once the user input the title of the movie it stores in the search bar. So user can easily search the same name of the movie without re-entering into the search bar.  
+    Search history is designed to save browser time. Once the user input the title of their entertainment, it stores in the search bar. So user can easily search the same name of the movie without re-entering into the search bar.  
 
     @ Choosing the Genre -
 
-    User also can search the trailer by choosing a Genre. This is, if the user wants to search the same title and also can be searched by the catagory. This option has been designed due to some of movies related to multiple catogories.
+    User also can search the trailer by choosing a Genre. This is, if the user wants to search the same title and also can be searched by the category. This option has been designed due to some other entertainment related to multiple categories.
 
     Ex:
 
     @ Year of Made -
 
-    If there's a series of movies under one title which are released in different years, the user can search the particular movie title by year of released and get the filtered results.
+    If there's a series of entertainment under one title which are released in different years, the user can search the particular title by year of released and get the filtered results.
 
     Ex:
 
@@ -134,7 +86,7 @@ so users can find movies according to desired search and view the trailer.
 
     @ Search Section -
  
-    In this section, the titles of movies the user has selected has been saved within the local storage using the JSON stringify and parse functions. 
+    In this section, the titles the user has selected has been saved within the local storage using the JSON stringify and parse functions. 
 
     When the browser is refreshed the history list will be presented due to the function of parsing the local storage and it is present on the User Interface (UI). 
 
@@ -142,8 +94,7 @@ so users can find movies according to desired search and view the trailer.
     
     Clicking on the title in the history section calls on the youtube API to receive the URL and creates a youtube video player on the main screen.
    
-    The search section also triggers the API call by inputting the search Movie name into the API request url.  When the user clicked a title it will be stored within a variable and then stored within the local storage using stringify. 
-
+    The search section also triggers the API call by inputting the search name into the API request url. When the user clicked a title it will be stored within a variable and then stored within the local storage using stringify. 
 
 
 # Obstacles 🤔
@@ -159,7 +110,7 @@ so users can find movies according to desired search and view the trailer.
     - YouTube API key validation period
 
     - Bulma coding pattern
-    
+
 
 # Authors
 
@@ -171,7 +122,6 @@ so users can find movies according to desired search and view the trailer.
 
     - Chamath (HTML, README) 
 
-    
 ⚡️ Fun fact...
 
 Thank you for the Developers for making us Developers!
